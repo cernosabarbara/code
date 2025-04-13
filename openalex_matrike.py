@@ -132,13 +132,13 @@ df.to_csv("ai_surveillance_openalex.csv", index=False)
 # Pregled podatkovnega okvirja
 df.info()
 df.head()
-# Definiranje unikatnih polj
+
+# Pregled unikatnih polj
 unique_works = df["title"].unique()
 unique_authors = df["authors"].explode().unique() if "authors" in df.columns else []
 unique_institutions = df["institution"].explode().unique() if "institution" in df.columns else []
 unique_journals = df["journal"].unique() if "journal" in df.columns else []
 unique_keywords = df["keywords"].explode().unique() if "keywords" in df.columns else []
-# Print counts
 print("Unikatna dela:", len(unique_works))
 print("Unikatni avtorji:", len(unique_authors))
 print("Unikatne inštitucije:", len(unique_institutions))
